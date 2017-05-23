@@ -1,7 +1,5 @@
 # quality-workshop-unittest
-Contains exercises on maintaining unittests
-
-## This branch contains the solution of the unittest assignments
+This branch contains the solution of the unittest exercises
 
 ## Bug 1
  
