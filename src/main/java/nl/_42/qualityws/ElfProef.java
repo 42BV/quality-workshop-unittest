@@ -19,6 +19,11 @@ public class ElfProef {
             throw new IllegalArgumentException("Accountnumber must exist.");
         }
 
+        // Check max length of 10 digits
+        if (accountNumber.length() > 10) {
+            throw new IllegalArgumentException("Accountnumber may not contain more than 10 digits.");
+        }
+        
         // Strip all non-digits
         StringBuilder accountNumberOnlyDigits = new StringBuilder();
         for (String character : accountNumber.split("")) {
@@ -27,7 +32,7 @@ public class ElfProef {
                 accountNumberOnlyDigits.append(currentChar);
             }
         }
-
+       
         // Check if accountNumber does not only contain zero's
         boolean onlyZeroes = true;
         for (String number : accountNumberOnlyDigits.toString().split("")) {
@@ -39,11 +44,6 @@ public class ElfProef {
             throw new IllegalArgumentException("Accountnumber with only zero's not permitted.");
         }
 
-        // Check max length of 10 digits
-        if (accountNumberOnlyDigits.length() > 10) {
-            throw new IllegalArgumentException("Accountnumber may not contain more than 10 digits.");
-        }
-
         // Left pad accountnumber with zero's to 10 digits
         StringBuilder accountNumberLengthTen = new StringBuilder();
         for (int position = accountNumberOnlyDigits.length(); position < 10; position++) {
@@ -52,16 +52,15 @@ public class ElfProef {
         accountNumberLengthTen.append(accountNumberOnlyDigits);
 
         // Calculate 11-proef sum (left-to-right)
-        String[] digitsLTR = accountNumberLengthTen.toString().split("");
         Integer sumLTR = 0;
-        Integer positionLTR = 1;
+        Integer positionLTR = 0;
+        String[] digitsLTR = accountNumberLengthTen.toString().split("");
         for (String stringDigit : digitsLTR) {
             Integer digit = Integer.parseInt(stringDigit);
             sumLTR += digit * positionLTR;
             positionLTR++;
         }
 
-        // Check if sum is dividable by 11
-        return sumLTR % 11 == 0;
+        return true;
     }
 }
