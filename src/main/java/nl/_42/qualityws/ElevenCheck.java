@@ -1,16 +1,16 @@
 package nl._42.qualityws;
 
 /**
- * Utility class that provides a method to check if a given accountNumber succeeds the '11-Proef'.
+ * Utility class that provides a method to check if a given accountNumber succeeds the '11-check'.
  * https://nl.wikipedia.org/wiki/Elfproef.
  */
-public class ElfProef {
+public class ElevenCheck {
 
     /**
      * Given accountNumber may contain any alphanumeric character.
      * 
      * @param accountNumber String - the raw accountNumber to be checked
-     * @return boolean - true if 11-proef succeeds, false otherwise
+     * @return boolean - true if 11-check succeeds, false otherwise
      */
     public static boolean execute(String accountNumber) {
 
@@ -51,7 +51,7 @@ public class ElfProef {
         }
         accountNumberLengthTen.append(accountNumberOnlyDigits);
 
-        // Calculate 11-proef sum (left-to-right)
+        // Calculate 11-check sum (left-to-right)
         Integer sumLTR = 0;
         Integer positionLTR = 0;
         String[] digitsLTR = accountNumberLengthTen.toString().split("");
