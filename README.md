@@ -7,8 +7,8 @@ This branch contains the solution of the unittest exercises
 
 ## Bug 2
 
-- See implementations of the 4 failure path test methods in ElfProefTest.java.
-- The ElfProef util always returns true... No 11 check done at all! That shows us the importance of testing success and failure paths!
+- See implementations of the 4 failure path test methods in ElevenCheckTest.java.
+- The ElevenCheck util always returns true... No 11 check done at all! That shows us the importance of testing success and failure paths!
   
 ## Bug 3
   
