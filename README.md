@@ -15,7 +15,7 @@ There are 3 bugs in the util that have to be fixed. We are going to do that step
  
 - Start with running the unittest that belongs to the ElevenCheck util: ElevenCheckTest.java. You will notice that 2 tests fail.
 - Try to fix these 2 tests by fixing the first bug in ElevenCheck.java.
-  - Hint: an exception is thrown by the ElevenCheck util, but that should not have happened... we are testing a success path here!
+  - Hint: an exception is thrown by the ElevenCheck util, why?
 
 ## Bug 2
 
@@ -28,5 +28,5 @@ There are 3 bugs in the util that have to be fixed. We are going to do that step
 ## Bug 3
   
 - Ok, you fixed the 4 failing tests, great! But now some success test are failing... Fix the last bug in the code!
-  - Hint: one- or zero based, that's the question...
+  - Hint: where to start counting?
   
