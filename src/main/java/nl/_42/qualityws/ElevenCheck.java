@@ -15,13 +15,13 @@ public class ElevenCheck {
     public static boolean execute(String accountNumber) {
 
         // accountnumber may not be null
-        if (accountNumber == null) {
-            throw new IllegalArgumentException("Accountnumber must exist.");
+        if (accountNumber == null || accountNumber.length() == 0) {
+            throw new IllegalArgumentException("Account number must exist.");
         }
 
         // Check max length of 10 digits
         if (accountNumber.length() > 10) {
-            throw new IllegalArgumentException("Accountnumber may not contain more than 10 digits.");
+            throw new IllegalArgumentException("Account number may not contain more than 10 digits.");
         }
         
         // Strip all non-digits
@@ -38,13 +38,14 @@ public class ElevenCheck {
         for (String number : accountNumberOnlyDigits.toString().split("")) {
             if (!number.equals("0")) {
                 onlyZeroes = false;
+                break;
             }
         }
         if (onlyZeroes) {
-            throw new IllegalArgumentException("Accountnumber with only zero's not permitted.");
+            throw new IllegalArgumentException("Account number with only zero's not permitted.");
         }
 
-        // Left pad accountnumber with zero's to 10 digits
+        // Left pad account number with zero's to 10 digits
         StringBuilder accountNumberLengthTen = new StringBuilder();
         for (int position = accountNumberOnlyDigits.length(); position < 10; position++) {
             accountNumberLengthTen.append('0');
@@ -52,13 +53,13 @@ public class ElevenCheck {
         accountNumberLengthTen.append(accountNumberOnlyDigits);
 
         // Calculate 11-check sum (left-to-right)
-        Integer sumLTR = 0;
-        Integer positionLTR = 0;
-        String[] digitsLTR = accountNumberLengthTen.toString().split("");
-        for (String stringDigit : digitsLTR) {
+        Integer sumLeftToRight = 0;
+        Integer positionLeftToRight = 0;
+        String[] digitsLeftToRight = accountNumberLengthTen.toString().split("");
+        for (String stringDigit : digitsLeftToRight) {
             Integer digit = Integer.parseInt(stringDigit);
-            sumLTR += digit * positionLTR;
-            positionLTR++;
+            sumLeftToRight += digit * positionLeftToRight;
+            positionLeftToRight++;
         }
 
         return true;
